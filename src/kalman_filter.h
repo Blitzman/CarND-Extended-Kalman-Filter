@@ -53,6 +53,13 @@ public:
   void Predict();
 
   /**
+   * Kalman filter update step which is common on normal and extended implementation
+   * given an already computed pre-fit residual in measurement space
+   * @param y Measurement pre-fit residual at k+1
+   */
+  void UpdateKFStep(const Eigen::VectorXd &y);
+
+  /**
    * Updates the state by using standard Kalman Filter equations
    * @param z The measurement at k+1
    */
