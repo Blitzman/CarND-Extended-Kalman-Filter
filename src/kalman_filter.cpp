@@ -61,7 +61,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   float x_vy = x_(3);
 
   float rho = sqrt(x_x * x_x + x_y * x_y);
-  float phi = atan(x_y / x_x);
+  float phi = atan2(x_y, x_x);
   float rho_dot = (x_x * x_vx + x_y * x_vy) / rho;
 
   VectorXd hx = VectorXd(3);
@@ -69,6 +69,15 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   // Measurement pre-fit residual
   VectorXd y = z - hx;
+
+	// Normalize angles
+	while (y(1) < -M_PI) {
+		y(1) += 2 * M_PI;
+	}
+	while (y(1) > M_PI) {
+		y(1) -= 2 * M_PI;
+	}
+
   // Kalman update with pre-fit residual
   UpdateKFStep(y);
 }
