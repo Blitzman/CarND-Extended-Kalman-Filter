@@ -63,7 +63,7 @@ The implementation of the Kalman filter can be found in [kalman_filter.cpp]( Car
 
 #### Your Kalman Filter algorithm handles the first measurements appropriately.
 
-TODO
+The first measurements are handled in [FusionEKF.cpp](CarND-Extended-Kalman-Filter/src/FusionEKF.cpp) in `ProcessMeasurement()` lines 76 to 119. First, an empty measurement vector is created which will be initialized depending on the sensor type. If it is a RADAR measurement, we convert the polar coordinates rho, phi, and rho_dot to cartesian and initialize the vector with the corresponding x, y, vx, and vy values. If the measurement comes from a LIDAR sensor we just take x and y and assume zero velocity. After that, we initialize the covariance matrix P with 1, 1, 1000, 1000 diagonal and zero in the rest of the matrix and update the timestamp to compute the elapsed time for the next measurement.
 
 #### Your Kalman Filter algorithm first predicts then updates.
 
