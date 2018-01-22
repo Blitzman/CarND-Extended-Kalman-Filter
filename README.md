@@ -67,7 +67,7 @@ The first measurements are handled in [FusionEKF.cpp](CarND-Extended-Kalman-Filt
 
 #### Your Kalman Filter algorithm first predicts then updates.
 
-TODO
+The algorithm predicts first in lines 125 to 152 [FusionEKF.cpp](https://github.com/Blitzman/CarND-Extended-Kalman-Filter/blob/master/src/FusionEKF.cpp) by calculating the elapsed time, the transition matrix F, and the noise covariance matrix Q. After that, `Predict()` from [kalman_filter.cpp](https://github.com/Blitzman/CarND-Extended-Kalman-Filter/blob/master/src/kalman_filter.cpp) is called. Once prediction is done, update is performed between lines 158 and 169.
 
 #### Your Kalman Filter can handle radar and lidar measurements.
 
