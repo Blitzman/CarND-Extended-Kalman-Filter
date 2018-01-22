@@ -59,7 +59,7 @@ After running the algorithm against Dataset 1 and Dataset 2 in the simulator and
 
 #### Your Sensor Fusion algorithm follows the general processing flow as taught in the preceding lessons.
 
-TODO
+The implementation of the Kalman filter can be found in [kalman_filter.cpp]( CarND-Extended-Kalman-Filter/src/kalman_filter.cpp). It contains the needed functions as taught in the lessons: `Predict()` for predicting the state estimate and the covariance, `Update()` to perform a normal Kalman update (LIDAR) and `UpdateEKF()` for the update in the extended case (RADAR). The Kalman filter prediction and update functions are used in the general flow of the sensor fusion algorithm which is coded in [FusionEKF.cpp](CarND-Extended-Kalman-Filter/src/FusionEKF.cpp) in `ProcessMeasurement()`.
 
 #### Your Kalman Filter algorithm handles the first measurements appropriately.
 
