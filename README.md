@@ -1,4 +1,4 @@
-# Extended Kalman Filter Project Starter Code
+# Extended Kalman Filter Project
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 Self-Driving Car Engineer Nanodegree Program
 
@@ -71,7 +71,7 @@ The algorithm predicts first in lines 125 to 152 [FusionEKF.cpp](https://github.
 
 #### Your Kalman Filter can handle radar and lidar measurements.
 
-TODO
+In [FusionEKF.cpp](https://github.com/Blitzman/CarND-Extended-Kalman-Filter/blob/master/src/FusionEKF.cpp) the update step is performed differently depending on the type of sensor that provides the measurement. If it comes from a RADAR sensor, we first compute the Jacobian matrix and then assign the proper H and R to the Kalman filter then perform the update step by using the extended Kalman filter equations in `UpdateEKF()`. If the measurement comes from a LIDAR sensor we just assign the proper H and R matrices and then update using the normal Kalman filter equations on `Update()`.
 
 ### Code Efficiency
 
